@@ -4,15 +4,20 @@ import math
 from decimal import Decimal, ROUND_DOWN, ROUND_FLOOR
 import time
 
-# Configuracion de la API
-api_key = "APIKEY"
-api_secret = "APISECRET"
-symbol = "XRPUSDT"
-timeframe = "5"  # Intervalo de tiempo 1,3,5,15,30,60,120,240,360,720,D,M,W
-usdt = 10  # Cantidad de dolares para abrir posicion.
+import os
+from dotenv import load_dotenv
 
-tp_porcent = 0.2  # Take profit porcentaje
-sl_porcent = 0.4  # Stop loss porcentaje
+# Configuracion de la API
+api_key = os.getenv("API_KEY")
+api_secret = os.getenv("API_SECRET")
+symbol = os.getenv("SYMBOL", "XRPUSDT")
+timeframe = os.getenv(
+    "TIMEFRAME", "5"
+)  # Intervalo de tiempo 1,3,5,15,30,60,120,240,360,720,D,M,W
+usdt = float(os.getenv("USDT", 10))  # Cantidad de dolares para abrir posicion.
+
+tp_porcent = float(os.getenv("TP_PORCENT", 0.2))  # Take profit porcentaje
+sl_porcent = float(os.getenv("SL_PORCENT", 0.4))  # Stop loss porcentaje
 
 client = HTTP(api_key=api_key, api_secret=api_secret, testnet=False)
 

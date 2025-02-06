@@ -1,0 +1,3 @@
+pandas==2.2.3
+pybit==5.9.0
+python-dotenv==1.0.1
