@@ -119,6 +119,8 @@ while True:
                     print("Stop loss y Take profit activados")
                     stop = True
         else:
+            stop = False
+            qty = 0
             # Obtener datos historicos
             data = obtener_datos_historicos(symbol, timeframe)
             # Calcular bandas de bollinger
